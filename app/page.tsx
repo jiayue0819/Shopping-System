@@ -1,9 +1,8 @@
-import Link from "next/link";
 import { redirect } from "next/navigation";
 import { getCurrentProfile, roleHomePath } from "@/lib/auth/session";
 
 const btnBase =
-  "inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition";
+  "inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition no-underline";
 
 export default async function HomePage() {
   const profile = await getCurrentProfile();
@@ -20,24 +19,24 @@ export default async function HomePage() {
         </p>
       </div>
       <div className="flex flex-wrap justify-center gap-4">
-        <Link
+        <a
           href="/login"
           className={`${btnBase} bg-indigo-600 text-white hover:bg-indigo-700`}
         >
           登录
-        </Link>
-        <Link
+        </a>
+        <a
           href="/register?role=owner"
           className={`${btnBase} border border-gray-300 bg-white text-gray-700 hover:bg-gray-50`}
         >
           老板注册
-        </Link>
-        <Link
+        </a>
+        <a
           href="/register?role=customer"
           className={`${btnBase} border border-gray-300 bg-white text-gray-700 hover:bg-gray-50`}
         >
           客户注册（需邀请码）
-        </Link>
+        </a>
       </div>
     </main>
   );
